@@ -1,0 +1,443 @@
+/* DigitalAssistant.css */
+/* Tema specifică pentru o cofetărie cu culori calde și detalii elegante */
+
+/* Variabile de culoare pentru tema cofetăriei */
+:root {
+  --primary-color: #9e4244; /* Roșu-burgund pentru elemente principale */
+  --primary-light: #d88c8e; /* Nuanță mai deschisă pentru hover */
+  --secondary-color: #f4e9d9; /* Bej-crem pentru fundaluri secundare */
+  --accent-color: #dea173; /* Culoare caramel pentru accente */
+  --text-dark: #332a22; /* Maro închis pentru text */
+  --text-light: #f9f5f0; /* Alb-crem pentru text pe fundal închis */
+  --shadow-color: rgba(100, 70, 50, 0.3); /* Umbră caldă */
+  --pastry-pink: #f8b7c5; /* Roz pentru fundaluri */
+  --chocolate: #5c3c24; /* Ciocolată pentru borduri */
+  --vanilla: #f5efd9; /* Vanilie pentru elemente subtile */
+  --whipped-cream: #fff8f3; /* Alb-crem pentru carduri */
+  
+  /* Font import pentru fonturile necesare */
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+}
+
+/* Containerul principal al asistentului */
+.digital-assistant-container {
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Fundal tematic pentru cofetărie */
+.bakery-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--pastry-pink) 0%, var(--secondary-color) 100%);
+  background-image: url('https://img.freepik.com/free-photo/assortment-pieces-cake_114579-28299.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+/* Wrapper pentru conținut */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Titlu principal */
+.main-title {
+  color: var(--primary-color);
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.main-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+}
+
+/* Butonul pentru deschiderea/închiderea asistentului - ascuns în noua versiune */
+.assistant-toggle {
+  display: none;
+}
+
+/* Panoul principal al asistentului */
+.assistant-panel {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  min-height: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: var(--whipped-cream);
+  border-radius: 1.5rem;
+  box-shadow: 0 12px 36px var(--shadow-color);
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.5s ease-out;
+  border: 5px solid var(--accent-color);
+  position: relative;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header-ul asistentului */
+.assistant-header {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  color: var(--text-light);
+  padding: 1.5rem;
+  border-radius: 1.5rem 1.5rem 0 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border-bottom: 5px dashed var(--accent-color);
+}
+
+.assistant-avatar {
+  font-size: 2.5rem;
+  background: var(--secondary-color);
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--whipped-cream);
+}
+
+.assistant-header h3 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.8px;
+}
+
+/* Stilizare pentru secțiunea de întrebări */
+.assistant-question {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.assistant-question h4 {
+  color: var(--text-dark);
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  position: relative;
+}
+
+.assistant-question h4::after {
+  content: '';
+  position: absolute;
+  bottom: -0.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background: var(--accent-color);
+}
+
+.assistant-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 450px;
+}
+
+.option-button {
+  background-color: var(--secondary-color);
+  color: var(--text-dark);
+  border: 2px solid var(--accent-color);
+  border-radius: 1rem;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  position: relative;
+  font-weight: 500;
+}
+
+.option-button:hover {
+  background-color: var(--accent-color);
+  color: var(--text-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.option-button::after {
+  content: '›';
+  position: absolute;
+  right: 1rem;
+  font-size: 1.4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.2s ease;
+}
+
+.option-button:hover::after {
+  transform: translateY(-50%) translateX(3px);
+}
+
+/* Stilizare pentru secțiunea de recomandări */
+.assistant-recommendations {
+  padding: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.assistant-recommendations h4 {
+  color: var(--text-dark);
+  font-size: 1.6rem;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  position: relative;
+}
+
+.assistant-recommendations h4::after {
+  content: '';
+  position: absolute;
+  bottom: -0.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background: var(--accent-color);
+}
+
+.recommendations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  width: 100%;
+}
+
+.recommendation-card {
+  background-color: var(--whipped-cream);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 8px 24px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 3px solid var(--accent-color);
+  display: flex;
+  flex-direction: row;
+}
+
+.recommendation-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px var(--shadow-color);
+}
+
+.recipe-image {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-right: 3px solid var(--accent-color);
+}
+
+.recipe-details {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-details h5 {
+  color: var(--primary-color);
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+}
+
+.recipe-details p {
+  color: var(--text-dark);
+  font-size: 1rem;
+  margin: 0 0 1.2rem 0;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.recipe-tags {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.tag {
+  background-color: var(--secondary-color);
+  color: var(--text-dark);
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 1rem;
+  display: inline-block;
+  font-weight: 500;
+  border: 1px solid var(--accent-color);
+}
+
+.reset-button {
+  background-color: var(--accent-color);
+  color: var(--text-dark);
+  border: none;
+  border-radius: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 6px 12px var(--shadow-color);
+  border: 2px solid transparent;
+}
+
+.reset-button:hover {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  box-shadow: 0 8px 20px var(--shadow-color);
+  transform: translateY(-3px);
+  border: 2px solid var(--accent-color);
+}
+
+/* Animații pentru tranziții între întrebări */
+.assistant-question, .assistant-recommendations {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Stiluri pentru scrollbar */
+.assistant-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.assistant-panel::-webkit-scrollbar-track {
+  background: var(--secondary-color);
+  border-radius: 10px;
+}
+
+.assistant-panel::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 10px;
+}
+
+.assistant-panel::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-light);
+}
+
+/* Media queries pentru responsive design */
+@media (max-width: 768px) {
+  .bakery-background {
+    opacity: 0.15;
+  }
+  
+  .main-title {
+    font-size: 2rem;
+  }
+  
+  .assistant-panel {
+    width: 90%;
+    max-width: 600px;
+  }
+  
+  .assistant-header h3 {
+    font-size: 1.5rem;
+  }
+  
+  .assistant-question h4,
+  .assistant-recommendations h4 {
+    font-size: 1.3rem;
+  }
+  
+  .option-button {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+  
+  .recommendation-card {
+    flex-direction: column;
+  }
+  
+  .recipe-image {
+    width: 100%;
+    height: 220px;
+    border-right: none;
+    border-bottom: 3px solid var(--accent-color);
+  }
+  
+  .reset-button {
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .assistant-panel {
+    width: 95%;
+    max-width: none;
+  }
+  
+  .recipe-details h5 {
+    font-size: 1.1rem;
+  }
+  
+  .recipe-details p {
+    font-size: 0.95rem;
+  }
+}
